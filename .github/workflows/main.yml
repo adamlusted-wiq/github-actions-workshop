@@ -4,6 +4,10 @@ on: [push]
 
 jobs:
   eslint:
+    strategy:
+      matrix:
+        moo: ['Moo','Moooooooooooo']
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -13,4 +17,4 @@ jobs:
       - name: install modules
         run: npm ci
       - name: run script
-        run: npx cowsay Mooooo
+        run: npx cowsay ${{ matrix.moo }}
