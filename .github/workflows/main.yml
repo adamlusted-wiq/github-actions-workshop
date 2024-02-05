@@ -3,19 +3,27 @@ name: eslint
 on: [push]
 
 jobs:
-  eslint:
-    strategy:
-      matrix:
-        node_version: [18, 19, 20]
-        patch: [1, 2, 3]
+  moo:
 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node_version }}.${{ matrix.patch }}
+          node-version: 16
       - name: install modules
         run: npm ci
       - name: run script
         run: npx cowsay Mooo
+  moo2:
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: install modules
+        run: npm ci
+      - name: run script
+        run: npx cowsay Mooo2
