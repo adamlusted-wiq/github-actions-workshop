@@ -6,14 +6,14 @@ jobs:
   eslint:
     strategy:
       matrix:
-        node_version: [10, 12,14,16, 18, 19, 20]
+        node_version: [8, 9, 10, 12, 14, 16, 18, 19, 20]
 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.moo }}
+          node-version: ${{ matrix.node_version }}
       - name: install modules
         run: npm ci
       - name: run script
