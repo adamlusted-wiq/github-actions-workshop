@@ -1,6 +1,6 @@
 name: eslint
 
-on: workflow_dispatch
+on: [push]
 
 jobs:
   eslint:
@@ -12,3 +12,4 @@ jobs:
           node-version: 16
       - run: npm ci
       - run: npm run lint
+      - run: npm triplej
