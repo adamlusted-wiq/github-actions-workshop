@@ -10,5 +10,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm ci
-      - run: npx cowsay hello
+      - name: install modules
+        run: npm ci
+      - name: run script
+        run: npx cowsay Mooooo
