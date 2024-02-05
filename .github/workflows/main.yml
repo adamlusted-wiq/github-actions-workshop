@@ -7,13 +7,14 @@ jobs:
     strategy:
       matrix:
         node_version: [18, 19, 20]
+        patch: [1, 2, 3]
 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node_version }}
+          node-version: ${{ matrix.node_version }}.${{ matrix.patch }}
       - name: install modules
         run: npm ci
       - name: run script
